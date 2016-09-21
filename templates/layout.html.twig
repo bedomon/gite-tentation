@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>L'Antre de la tentation</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('/assets/css/main.css') }}" />
+            <link rel="stylesheet" href="{{ asset('/assets/css/dhtmlxscheduler.css') }}" />
+        {% endblock %}
+        
+        
+        <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+        
+        
+        
+
+        <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+        <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    </head>
+    <body>
+
+        <!-- Header -->
+        <header id="header">
+
+            <!-- Logo -->
+            <h1 id="logo">logo AT</h1>
+
+            <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="#intro">Accueil</a></li>
+                    <li><a href="#description">Le gite</a></li>
+                    <li><a href="#photos">Les photos</a></li>
+                    <li><a href="#tarifs">Les tarifs</a></li>
+                    <li><a href="#reservation">Réservation</a></li>
+                    <li><a href="#livredor">Livre d'or</a></li>
+                </ul>
+            </nav>
+
+        </header>
+
+        <!-- Accueil -->
+        {% include 'accueil.html.twig' %}
+
+        <!-- Description -->
+        {% include 'description.html.twig' %}
+
+        <!-- Phohtos -->
+        {% include 'photos.html.twig' %}
+        
+        <!-- Tarifs -->
+        {% include 'tarif.html.twig' %}
+
+        <!-- Reservation -->
+        {% include 'reservation.html.twig' %}
+        
+        <!-- Livre d'or -->
+        {% include 'livredor.html.twig' %}
+
+        <!-- Footer -->
+        <footer id="footer">
+
+            <!-- Icons -->
+            <ul class="actions">
+                <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+                <li><a href="#" class="icon fa-pinterest"><span class="label">Pinterest</span></a></li>
+                <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+            </ul>
+
+            <!-- Menu -->
+            <ul class="menu">
+                <li>&copy; Untitled</li><li>Design: <a href="">Moi</a></li>
+            </ul>
+
+        </footer>
+
+        <!-- Scripts -->
+        <script src="{{asset('assets/js/dhtmlxscheduler.js')}}"></script>
+        <script src="{{asset('assets/js/jquery.min.js')}}"></script>
+        <script src="{{asset('assets/js/jquery.poptrox.min.js')}}"></script>
+        <script src="{{asset('assets/js/jquery.scrolly.min.js')}}"></script>
+        <script src="{{asset('assets/js/jquery.scrollex.min.js')}}"></script>
+        <script src="{{asset('assets/js/skel.min.js')}}"></script>
+        <script src="{{asset('assets/js/util.js')}}"></script>
+        <!--[if lte IE 8]><script src="{{asset('assets/js/ie/respond.min.js')}}"></script><![endif]-->
+        <script src="{{asset('assets/js/main.js')}}"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                var events = [
+{id:1, text:"Meeting",   start_date:"09/11/2016 14:00",end_date:"09/11/2016 17:00"},
+{id:2, text:"Conference",start_date:"09/15/2016 12:00",end_date:"09/18/2016 19:00"},
+{id:3, text:"Interview", start_date:"09/24/2016 09:00",end_date:"09/24/2016 10:00"}
+];
+                scheduler.config.xml_date="%d-%m-%Y %H:%i";
+                scheduler.xy.scale_height = 20;
+                scheduler.xy.scale_width = 20;
+                scheduler.xy.month_head_height = 60;
+                scheduler.xy.month_scale_height = 60;
+		scheduler.init('scheduler_here',new Date(),"month");
+{#		scheduler.load("./data/events.xml");#}
+                scheduler.parse(events, "json");
+            });
+		
+        
+
+        </script>
+
+    </body>
+</html>
